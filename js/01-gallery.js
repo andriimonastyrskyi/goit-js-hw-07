@@ -22,7 +22,6 @@ function addGalleryItems(galleryItems) {
 </div>`
     )
     .join("");
-  // console.log(galleryItems);
 }
 
 // galleryRefs.innerHTML = galleryItems;
@@ -31,25 +30,9 @@ galleryRefs.insertAdjacentHTML("beforeend", addGalleryItems(galleryItems));
 
 galleryRefs.addEventListener("click", openModal);
 
-// function openModal(event) {
-//   event.preventDefault();
-
-//   if (!event.target.classList.contains("IMG")) {
-//     return;
-//   }
-
-//   const instance = basicLightbox.create(`
-//     <img src="${event.target.dataset.source}" width="800" height="600">
-// `);
-
-//   instance.show();
-
-//   close(instance);
-// }
-
 function openModal(event) {
   event.preventDefault();
-  // Перевірка чи клік містить картинку
+
   if (!event.target.classList.contains("gallery__image")) {
     return;
   }
