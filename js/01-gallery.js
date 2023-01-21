@@ -31,30 +31,37 @@ galleryRefs.insertAdjacentHTML("beforeend", addGalleryItems(galleryItems));
 
 galleryRefs.addEventListener("click", openModal);
 
+// function openModal(event) {
+//   event.preventDefault();
+
+//   if (!event.target.classList.contains("IMG")) {
+//     return;
+//   }
+
+//   const instance = basicLightbox.create(`
+//     <img src="${event.target.dataset.source}" width="800" height="600">
+// `);
+
+//   instance.show();
+
+//   close(instance);
+// }
+
 function openModal(event) {
   event.preventDefault();
-
-  if (!event.target.classList.contains("IMG")) {
+  // Перевірка чи клік містить картинку
+  if (!event.target.classList.contains("gallery__image")) {
     return;
   }
-
+  // Відкриття
   const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" width="800" height="600">
 `);
-
   instance.show();
-
-  close(instance);
+  // Закриття
+  document.addEventListener("keydown", (event) => {
+    if (event.code === "Escape") {
+      instance.close();
+    }
+  });
 }
-// const instance = basicLightbox.create(
-//   `<img src="${event.target.dataset.source}" width="800" height="600">`
-//   {
-//     onShow: (instance) => {
-//       window.addEventListener("keydown", closeModal);
-//     },
-//     onClose: (instance) => {
-//       window.removeEventListener("keydown", closeModal);
-//     },
-//   }
-// );
-// instance.show();
