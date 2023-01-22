@@ -17,30 +17,11 @@ function addGalleryItems(galleryItems) {
             </a>`
     )
     .join("");
-  // console.log(galleryItems);
 }
-
-// galleryRefs.innerHTML = galleryItems;
 
 galleryRefs.insertAdjacentHTML("beforeend", addGalleryItems(galleryItems));
 
-galleryRefs.addEventListener("click", openModal);
-
-function openModal(event) {
-  event.preventDefault();
-
-  //
-
-  if (!event.target.classList.contains("gallery__image")) {
-    return;
-  }
-
-  let gallery = new SimpleLightbox(".gallery__item");
-
-  gallery.on("show.simplelightbox", function () {
-    const { options } = gallery;
-
-    options.captionsData = "alt";
-    options.captionDelay = 250;
-  });
-}
+new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});

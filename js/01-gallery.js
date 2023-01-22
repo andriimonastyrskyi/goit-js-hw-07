@@ -24,8 +24,6 @@ function addGalleryItems(galleryItems) {
     .join("");
 }
 
-// galleryRefs.innerHTML = galleryItems;
-
 galleryRefs.insertAdjacentHTML("beforeend", addGalleryItems(galleryItems));
 
 galleryRefs.addEventListener("click", openModal);
